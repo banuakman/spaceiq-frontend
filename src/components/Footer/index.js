@@ -7,7 +7,7 @@ const Footer = () => (
     <Container className="footer" fluid={true}>
       <Row>
         <Col xl={12}>
-          Copyright © 2021-{new Date().getFullYear()}{" "}
+          Copyright © {new Date().getFullYear()} -{" "}
           <strong>Banu - Pallavi - Priya</strong>
         </Col>
       </Row>
