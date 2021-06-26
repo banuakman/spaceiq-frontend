@@ -1,14 +1,13 @@
 import React from "react";
 import "./style.css";
-import { Container, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
+import Image from "react-bootstrap/Image";
 
 const LandingPage = () => (
-  <Container>
+  <>
     <Row>
-      <Col xl={12}>
-        <strong>HELLO SpaceIQ</strong>
-      </Col>
+      <Image src="landing-spaceIQ.jpg" fluid />
     </Row>
-  </Container>
+  </>
 );
 export default LandingPage;

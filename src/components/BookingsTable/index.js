@@ -1,4 +1,4 @@
-//import api from "api";
+// import api from "api";
 import PropTypes from "prop-types";
 //import { useMutation, useQueryClient } from "react-query";
 import Table from "react-bootstrap/Table";
@@ -28,6 +28,14 @@ function BookingsTable({ bookings }) {
         </tr>
       </thead>
       <tbody>
+        <tr>
+          <td>011122312</td>
+          <td>b12</td>
+          <td>08.09.2021</td>
+          <td>
+            <button className="btn btn-primary">Delete</button>
+          </td>
+        </tr>
         {/* {bookings.map(({ bookingId, deskId, employeeId, date }) => (
           <tr key={bookingId} data-id={bookingId}>
             <td>{bookingId}</td>
@@ -39,15 +47,6 @@ function BookingsTable({ bookings }) {
             </td>
           </tr>
         ))} */}
-
-        <tr>
-          <td>011122312</td>
-          <td>b12</td>
-          <td>08.09.2021</td>
-          <td>
-            <button className="btn btn-primary">Delete</button>
-          </td>
-        </tr>
       </tbody>
     </Table>
   );

@@ -1,11 +1,12 @@
 import "./style.css";
 import { Container, Row, Col, Button, Spinner } from "react-bootstrap";
-// import api from "api";
+// import api from "../../api";
 import BookingsTable from "../../components/BookingsTable";
 
 // import { useQuery } from "react-query";
 
 // const fetchBookings = async () => await api.getBookingByEmployee();
+// const fetchBookings = async () => await api.getallbookings();
 
 function MyBookings() {
   // const { status, data, error } = useQuery("bookings", fetchBookings);
@@ -30,15 +31,14 @@ function MyBookings() {
     <Container className="container mx-auto">
       <Row>
         <Col xl={12}>
-          <strong>MY BOOKINGS</strong>
+          <h1>MY BOOKINGS</h1>
         </Col>
       </Row>
       <Row>
-        {/* <BookingsTable bookings={data} /> */}
         <BookingsTable />
       </Row>
     </Container>
   );
-  // }
 }
+// }
 export default MyBookings;
