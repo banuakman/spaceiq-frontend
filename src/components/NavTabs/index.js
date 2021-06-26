@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./style.css";
+import Container from "react-bootstrap/Table";
 
 function NavTabs() {
   const location = useLocation();
@@ -14,7 +15,7 @@ function NavTabs() {
           alt="spaceIQ"
           width="160"
           height="60"
-          className="d-inline-block align-text-top"
+          className="d-inline-block align-text-top leftpicture"
         />
       </Link>
       <button
@@ -33,7 +34,7 @@ function NavTabs() {
         className="navbar-collapse collapse nav-group "
         id="navbar-toggle"
       >
-        <ul className="navbar-nav nav-group ms-auto ">
+        <ul className="navbar-nav nav-group ms-auto rightmenu">
           <li className="nav-item">
             <Link
               to="/bookadesk"

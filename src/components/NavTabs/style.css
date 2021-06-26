@@ -14,3 +14,11 @@
 .active{
   color: #2FCCA9 !important;
 }
+
+.leftpicture{
+  margin-left: 20px;
+}
+
+.rightmenu{
+  margin-right: 30px;
+}
