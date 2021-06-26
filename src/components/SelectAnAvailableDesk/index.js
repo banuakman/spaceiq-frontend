@@ -5,7 +5,6 @@
 const SelectAnAvailableDesk = () => (
   <form>
     <div className="mb-3">
-      <h5>Choose A Date</h5>
       <select className="form-select" aria-label="Default select example">
         <option selected>View Available Desks for Selected Date</option>
         <option value="1">One</option>

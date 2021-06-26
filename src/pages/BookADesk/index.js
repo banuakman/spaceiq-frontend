@@ -16,6 +16,7 @@ const BookADesk = () => (
         <SelectDate />
       </Col>
       <Col>
+        <h5>Choose An Available Seat</h5>
         <Image src="officemap-spaceIQ.jpg" fluid />
         <SelectAnAvailableDesk />
       </Col>
