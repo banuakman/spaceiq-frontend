@@ -13,8 +13,8 @@ const API = {
   createBooking(booking) {
     return ky.post(bookingUrl, { json: booking }).json();
   },
-  deleteBooking(booking, id) {
-    return ky.delete(bookingUrl + id, { json: booking }).json();
+  deleteBooking(id) {
+    return ky.delete(`${bookingUrl}/${id}`);
   },
 
   // EMPLOYEE
@@ -24,8 +24,8 @@ const API = {
 
   // BOOKING BY EMPLOYEE
 
-  getBookingByEmployeeId(employeeId) {
-    return ky.get(employeeBookingsUrl + employeeId).json();
+  getBookingByEmployee() {
+    return ky.get(employeeBookingsUrl).json();
   },
 };
 
