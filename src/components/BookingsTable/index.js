@@ -3,8 +3,7 @@ import PropTypes from "prop-types";
 //import { useMutation, useQueryClient } from "react-query";
 import Table from "react-bootstrap/Table";
 
-function BookingsTable() {
-  // function BookingsTable({ bookings }) {
+function BookingsTable({ bookings }) {
   //   console.log (bookings);
   // const deleteBooking = useMutation((id) => api.delete(id));
   // const queryClient = useQueryClient();
