@@ -1,4 +1,3 @@
-import React from "react";
 import "./style.css";
 import { Container, Row, Col, Button, Spinner } from "react-bootstrap";
 // import api from "api";
