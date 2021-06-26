@@ -27,7 +27,7 @@ const MyProfile = () => (
           <Link
             className="btn btn-outline-light btn-lg mybookingsbtn"
             role="button"
-            to="/bookadesk"
+            to="/mybookings"
           >
             My Bookings
           </Link>
