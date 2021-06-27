@@ -1,7 +1,9 @@
 // import api from "api";
 import PropTypes from "prop-types";
-//import { useMutation, useQueryClient } from "react-query";
 import Table from "react-bootstrap/Table";
+import "./style.css";
+
+//import { useMutation, useQueryClient } from "react-query";
 
 function BookingsTable({ bookings }) {
   //   console.log (bookings);
@@ -18,35 +20,25 @@ function BookingsTable({ bookings }) {
   //   });
   // }
   return (
-    <Table responsive vstriped bordered hover variant="dark">
+    <Table responsive striped borderless hover>
       <thead>
         <tr>
-          <th>Booking ID</th>
+          <th>BookingId</th>
           <th>Date</th>
           <th>Desk</th>
-          <th></th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>011122312</td>
-          <td>b12</td>
-          <td>08.09.2021</td>
-          <td>
-            <button className="btn btn-primary">Delete</button>
-          </td>
-        </tr>
-        {/* {bookings.map(({ bookingId, deskId, employeeId, date }) => (
-          <tr key={bookingId} data-id={bookingId}>
-            <td>{bookingId}</td>
-            <td>{deskId}</td>
-            <td>{employeeId}</td>
+        {bookings.map(({ id, date, deskId }) => (
+          <tr key={id} data-id={id}>
+            <td>{id}</td>
             <td>{date}</td>
+            <td>B0{deskId}</td>
             <td>
-              <button className="btn btn-primary">Delete</button>
+              <button className="btn btn-primary deletebtn">Delete</button>
             </td>
           </tr>
-        ))} */}
+        ))}
       </tbody>
     </Table>
   );
@@ -55,10 +47,9 @@ function BookingsTable({ bookings }) {
 BookingsTable.propTypes = {
   bookings: PropTypes.arrayOf(
     PropTypes.exact({
-      bookingId: PropTypes.string.isRequired,
-      deskId: PropTypes.string.isRequired,
-      employeeId: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
       date: PropTypes.string.isRequired,
+      deskId: PropTypes.number.isRequired,
     })
   ),
 };
