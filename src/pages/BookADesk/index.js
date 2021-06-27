@@ -36,3 +36,23 @@ function BookADesk() {
   );
 }
 export default BookADesk;
+
+
+// const [date, setDate] = useState({
+//   partNumber: "",
+//   description: "",
+//   purchasePrice: 0.00,
+//   salePrice: 0.00,
+//   quantity: 0
+// });
+// const [apiResponseStatus, setApiResponseStatus] = useState('noShow')
+
+// async function submit(){
+//   try{
+//     await API.getBookingByDate(date);
+//     setApiResponseStatus('sucess')
+
+//   } catch(err){
+//     console.log(err)
+//     setApiResponseStatus('error')
+//   }
