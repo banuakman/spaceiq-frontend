@@ -8,7 +8,7 @@ import Image from "react-bootstrap/Image";
 
 import { Container, Row, Col } from "react-bootstrap";
 
-const fetchDesk = async () => await api.getallDesk();
+const fetchDesk = async () => await api.getAllDesks();
 
 function BookADesk() {
   const { status, data, error } = useQuery("desks", fetchDesk);

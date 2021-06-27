@@ -1,24 +1,27 @@
-// import api from "api";
+// TODO CHECK DATE FORMAT
+
+import api from "../../api";
 import PropTypes from "prop-types";
 import Table from "react-bootstrap/Table";
 import "./style.css";
 
-//import { useMutation, useQueryClient } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 
 function BookingsTable({ bookings }) {
-  //   console.log (bookings);
-  // const deleteBooking = useMutation((id) => api.delete(id));
-  // const queryClient = useQueryClient();
+  console.log("Bookings Data:", bookings);
+  const deleteBooking = useMutation((id) => api.deleteBooking(id));
+  const queryClient = useQueryClient();
 
-  // function handleDelete(event) {
-  //   console.log("Gonna delete the booking with id " + event.target.dataset.id);
-  //   deleteBooking.mutate(event.target.dataset.id, {
-  //     onSuccess: async () => {
-  //       console.log("OK");
-  //       queryClient.invalidateQueries("bookings");
-  //     },
-  //   });
-  // }
+  function handleDelete(event) {
+    console.log("deleting the booking with id " + event.target.dataset.id);
+    deleteBooking.mutate(event.target.dataset.id, {
+      onSuccess: async () => {
+        console.log("OK");
+        queryClient.invalidateQueries("bookings");
+      },
+    });
+  }
+
   return (
     <Table responsive striped borderless hover>
       <thead>
@@ -35,7 +38,13 @@ function BookingsTable({ bookings }) {
             <td>{date}</td>
             <td>B0{deskId}</td>
             <td>
-              <button className="btn btn-primary deletebtn">Delete</button>
+              <button
+                className="btn btn-danger dltbtn"
+                onClick={handleDelete}
+                data-id={id}
+              >
+                Delete
+              </button>
             </td>
           </tr>
         ))}
@@ -47,9 +56,10 @@ function BookingsTable({ bookings }) {
 BookingsTable.propTypes = {
   bookings: PropTypes.arrayOf(
     PropTypes.exact({
-      id: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
       date: PropTypes.string.isRequired,
       deskId: PropTypes.number.isRequired,
+      employeeId: PropTypes.number.isRequired,
     })
   ),
 };

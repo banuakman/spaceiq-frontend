@@ -4,7 +4,7 @@ import BookingsTable from "../../components/BookingsTable";
 import { Container, Row, Col } from "react-bootstrap";
 import Spinner from "react-bootstrap/Spinner";
 
-const fetchBookings = async () => await api.getallbookings();
+const fetchBookings = async () => await api.getAllBookings();
 
 function MyBookings() {
   const { status, data, error } = useQuery("bookings", fetchBookings);
@@ -13,15 +13,17 @@ function MyBookings() {
   switch (status) {
     case "loading":
       return (
-        <Spinner
-          as="span"
-          animation="border"
-          size="sm"
-          role="status"
-          aria-hidden="true"
-        >
-          Loading...
-        </Spinner>
+        <Container className="container mx-auto">
+          <Row className="justify-content-md-center">
+            <Spinner
+              as="span"
+              animation="border"
+              size="lg"
+              role="status"
+              aria-hidden="true"
+            />
+          </Row>
+        </Container>
       );
     case "error":
       return <p className="text-danger">{error.message}</p>;
