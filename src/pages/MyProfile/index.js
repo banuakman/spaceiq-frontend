@@ -10,7 +10,7 @@ const fetchEmployee = async () => await api.getEmployeeById(1);
 
 function MyProfile() {
   const { status, data, error } = useQuery("employee", fetchEmployee);
-  console.log(data);
+  console.log("Employee Data Fetch to MYPROFILE:", data);
 
   switch (status) {
     case "loading":
@@ -37,7 +37,7 @@ function MyProfile() {
           </Row>
           <Row>
             <Col>
-              <EmployeeCard />
+              <EmployeeCard employee={data} />
             </Col>
             <Col>
               <div>

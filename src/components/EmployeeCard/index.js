@@ -3,10 +3,11 @@ import PropTypes from "prop-types";
 //import { useMutation, useQueryClient } from "react-query";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
+import Table from "react-bootstrap/Table";
+
+import { useMutation, useQueryClient } from "react-query";
 
 function EmployeeCard({ employee }) {
-  // TODO: MAP EMPLOYEE
-
   // TODO: APPLY EDITABLE TEXT TO ADDRESS, PHONE & EMAIL
 
   // TODO: updateEmployee
@@ -32,21 +33,22 @@ function EmployeeCard({ employee }) {
   // }
 
   return (
-    <Card style={{ width: "300 px" }}>
-      <Card.Header>
-        <h5>Valerie Black</h5>
+    <Card>
+      <Card.Header key={employee.id} data-id={employee.id}>
+        <h5>
+          {employee.firstName} {employee.lastName}
+        </h5>
       </Card.Header>
       <Card.Body>
         <Card.Text>
-          Please use the below form to update your contact details.
+          Please update your contact details, if there is any change.
         </Card.Text>
       </Card.Body>
-      <ListGroup className="list-group-flush">
-        <ListGroup.Item>
-          Address: 1122 Spring Street Champaign, IL 61820
-        </ListGroup.Item>
-        <ListGroup.Item>Phone: 217-769-2488</ListGroup.Item>
-        <ListGroup.Item>Email: ValerieBlack@test.com</ListGroup.Item>
+
+      <ListGroup class="list-group">
+        <ListGroup.Item>Address: {employee.address}</ListGroup.Item>
+        <ListGroup.Item>Phone: {employee.phoneNumber}</ListGroup.Item>
+        <ListGroup.Item>Email: {employee.email}</ListGroup.Item>
       </ListGroup>
     </Card>
   );
@@ -55,9 +57,11 @@ function EmployeeCard({ employee }) {
 EmployeeCard.propTypes = {
   employee: PropTypes.arrayOf(
     PropTypes.exact({
-      name: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
+      firstName: PropTypes.string.isRequired,
+      lastName: PropTypes.string.isRequired,
       address: PropTypes.string.isRequired,
-      phone: PropTypes.number.isRequired,
+      phoneNumber: PropTypes.number.isRequired,
       email: PropTypes.string.isRequired,
     })
   ),
