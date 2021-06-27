@@ -3,6 +3,7 @@ import { useQuery } from "react-query";
 import BookingsTable from "../../components/BookingsTable";
 import { Container, Row, Col } from "react-bootstrap";
 import Spinner from "react-bootstrap/Spinner";
+import "./style.css";
 
 const fetchBookings = async () => await api.getAllBookings();
 
