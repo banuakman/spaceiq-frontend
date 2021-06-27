@@ -1,8 +1,10 @@
-import React from "react";
-import "./style.css";
+import api from "../../api";
+import { useQuery } from "react-query";
+import EmployeeCard from "../../components/EmployeeCard";
 import { Link } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
-import EmployeeCard from "../../components/EmployeeCard";
+import Spinner from "react-bootstrap/Spinner";
+import "./style.css";
 
 const MyProfile = () => (
   <Container>
