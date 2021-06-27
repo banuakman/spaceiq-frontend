@@ -1,7 +1,7 @@
 import ky from "ky";
 
 const bookingUrl = "http://localhost:8042/edge/bookings/";
-const employeeUrl = "localhost:8042/edge/employee/";
+const employeeUrl = "http://localhost:8042/edge/employee/";
 
 const deskUrl = "http://localhost:8080/api/desks/";
 
