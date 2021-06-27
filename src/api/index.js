@@ -1,39 +1,44 @@
 import ky from "ky";
 
-const bookingUrl = "http://localhost:8080/api/bookings/";
-// const employeeUrl = "http://localhost:8080/api/employees/";
-const deskUrl = "http://localhost:8080/api/desks";
+const bookingUrl = "http://localhost:8042/edge/bookings/";
+const employeeUrl = "localhost:8042/edge/employee/";
+
+const deskUrl = "http://localhost:8080/api/desks/";
 
 const api = {
   // BOOKING
-  getallbookings() {
+  getAllBookings() {
     return ky.get(bookingUrl).json();
   },
-  getalldesks() {
+  getAllDesks() {
     return ky.get(deskUrl).json();
   },
 
-  // getBookingById(id) {
-  //   return ky.get(bookingUrl + id).json();
-  // },
+  getBookingsById(id) {
+    return ky.get(bookingUrl + id).json();
+  },
 
-  //   createBooking(booking) {
-  //     return ky.post(bookingUrl, { json: booking }).json();
-  //   },
-  //   deleteBooking(id) {
-  //     return ky.delete(`${bookingUrl}/${id}`);
-  //   },
+  createBooking(booking) {
+    return ky.post(bookingUrl, { json: booking }).json();
+  },
 
-  //   // EMPLOYEE
-  //   updateEmployee(request) {
-  //     return ky.put(employeeUrl, { json: request }).json();
-  //   },
+  deleteBooking(id) {
+    return ky.delete(`${bookingUrl}/${id}`);
+  },
 
-  //   // BOOKING BY EMPLOYEE
+  //   EMPLOYEE
 
-  //   getBookingByEmployee() {
-  //     return ky.get(employeeBookingsUrl).json();
-  //   },
+  getAllEmployees() {
+    return ky.get(employeeUrl).json();
+  },
+
+  getEmployeeById(id) {
+    return ky.get(employeeUrl + id).json();
+  },
+
+  updateEmployee(request) {
+    return ky.put(employeeUrl, { json: request }).json();
+  },
 };
 
 export default api;
