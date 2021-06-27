@@ -13,15 +13,17 @@ function MyBookings() {
   switch (status) {
     case "loading":
       return (
-        <Spinner
-          as="span"
-          animation="border"
-          size="sm"
-          role="status"
-          aria-hidden="true"
-        >
-          Loading...
-        </Spinner>
+        <Container className="container mx-auto">
+          <Row className="justify-content-md-center">
+            <Spinner
+              as="span"
+              animation="border"
+              size="lg"
+              role="status"
+              aria-hidden="true"
+            />
+          </Row>
+        </Container>
       );
     case "error":
       return <p className="text-danger">{error.message}</p>;
