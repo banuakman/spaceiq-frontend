@@ -1,7 +1,14 @@
-.deletebtn {
-  color: ##FFEDEC !important;
-  background-color: ##FFEDEC !important;
-  border-color: ##FFEDEC !important;
+.dltbtn {
+  background-color: #FFEDEC !important;
+  border-color: #FFEDEC !important;
   width: 100px;
-  font-weight: bolder;
+  font-weight: bold;
+  color: red !important;
+}
+
+.dltbtn:hover {
+  background-color: #AF6C68 !important;
+  border-color: #AF6C68 !important;
+  width: 100px;
+  color: white !important;
 }
