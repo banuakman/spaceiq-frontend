@@ -13,9 +13,9 @@ const api = {
     return ky.get(deskUrl).json();
   },
 
-  //   getBookingById(id) {
-  //     return ky.get(bookingUrl + id).json();
-  //   },
+  // getBookingById(id) {
+  //   return ky.get(bookingUrl + id).json();
+  // },
 
   //   createBooking(booking) {
   //     return ky.post(bookingUrl, { json: booking }).json();
