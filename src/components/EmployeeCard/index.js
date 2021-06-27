@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 //import { useMutation, useQueryClient } from "react-query";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
-import Table from "react-bootstrap/Table";
+import Form from "react-bootstrap/Form";
 
 import { useMutation, useQueryClient } from "react-query";
 
@@ -12,8 +12,8 @@ function EmployeeCard({ employee }) {
 
   // TODO: updateEmployee
 
-  // const updateEmployee = useMutation(({ payload, id }) =>
-  //   api.updateEmployee(payload, id)
+  // const updateEmployee = useMutation(({ updatedinfo, id }) =>
+  //   api.updateEmployee(updatedinfo, id)
   // );
 
   // function handleUpdate(event) {
@@ -27,7 +27,7 @@ function EmployeeCard({ employee }) {
   //     ...{ [event.target.dataset.key]: event.target.value },
   //   };
   //   updatedEmployee.mutate({
-  //     payload: updatedEmployee,
+  //     updatedinfo: updatedEmployee,
   //     id: event.target.dataset.id,
   //   });
   // }
@@ -45,7 +45,7 @@ function EmployeeCard({ employee }) {
         </Card.Text>
       </Card.Body>
 
-      <ListGroup class="list-group">
+      <ListGroup className="list-group">
         <ListGroup.Item>Address: {employee.address}</ListGroup.Item>
         <ListGroup.Item>Phone: {employee.phoneNumber}</ListGroup.Item>
         <ListGroup.Item>Email: {employee.email}</ListGroup.Item>
@@ -55,15 +55,13 @@ function EmployeeCard({ employee }) {
 }
 
 EmployeeCard.propTypes = {
-  employee: PropTypes.arrayOf(
-    PropTypes.exact({
-      id: PropTypes.number.isRequired,
-      firstName: PropTypes.string.isRequired,
-      lastName: PropTypes.string.isRequired,
-      address: PropTypes.string.isRequired,
-      phoneNumber: PropTypes.number.isRequired,
-      email: PropTypes.string.isRequired,
-    })
-  ),
+  employee: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    address: PropTypes.string.isRequired,
+    phoneNumber: PropTypes.number.isRequired,
+    email: PropTypes.string.isRequired,
+  }),
 };
 export default EmployeeCard;
