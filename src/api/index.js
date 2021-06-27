@@ -2,12 +2,15 @@ import ky from "ky";
 
 const bookingUrl = "http://localhost:8080/api/bookings/";
 // const employeeUrl = "http://localhost:8080/api/employees/";
-// const employeeBookingsUrl = "http://localhost:8080/api/employeeBookings/";
+const deskUrl = "http://localhost:8080/api/desks";
 
 const api = {
   // BOOKING
   getallbookings() {
     return ky.get(bookingUrl).json();
+  },
+  getalldesks() {
+    return ky.get(deskUrl).json();
   },
 
   //   getBookingById(id) {
