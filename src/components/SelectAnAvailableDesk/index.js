@@ -1,8 +1,10 @@
-// import api from "api";
+import api from "../../api";
+import React from "react";
 // import PropTypes from "prop-types";
 // import { useMutation, useQueryClient } from "react-query";
-
-const SelectAnAvailableDesk = () => (
+function SelectAnAvailableDesk(){
+  
+return(
   <form>
     <div className="mb-3">
       <select className="form-select" aria-label="Default select example">
@@ -16,7 +18,13 @@ const SelectAnAvailableDesk = () => (
     <button type="Book My Desk" className="btn btn-primary">
       Submit
     </button>
+    {/* <button type="temp" onClick={() =>console.log(api.getallbookings)
+ } className="btn btn-primary">
+      temp
+    </button> */}
   </form>
+
 );
+}
 
 export default SelectAnAvailableDesk;
