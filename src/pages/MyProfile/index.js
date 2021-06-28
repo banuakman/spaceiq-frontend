@@ -19,20 +19,32 @@ function MyProfile() {
   switch (status) {
     case "loading":
       return (
-        <Container className="container mx-auto">
-          <Row className="justify-content-md-center">
-            <Spinner
-              as="span"
-              animation="border"
-              size="lg"
-              role="status"
-              aria-hidden="true"
-            />
-          </Row>
-        </Container>
+        <>
+          <Header>
+            <NavTabs />
+          </Header>
+          <Container className="container mx-auto">
+            <Row className="justify-content-md-center">
+              <Spinner
+                as="span"
+                animation="border"
+                size="lg"
+                role="status"
+                aria-hidden="true"
+              />
+            </Row>
+          </Container>
+        </>
       );
     case "error":
-      return <p className="text-danger">{error.message}</p>;
+      return (
+        <>
+          <Header>
+            <NavTabs />
+          </Header>
+          <p className="text-danger">{error.message}</p>;
+        </>
+      );
     default:
       return (
         <>
