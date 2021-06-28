@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import Spinner from "react-bootstrap/Spinner";
 import "./style.css";
+import Header from "../../components/Header";
+import NavTabs from "../../components/NavTabs";
 
 import { ChakraProvider } from "@chakra-ui/react";
 import { Heading } from "@chakra-ui/react";
@@ -33,41 +35,46 @@ function MyProfile() {
       return <p className="text-danger">{error.message}</p>;
     default:
       return (
-        <ChakraProvider>
-          <Container>
-            <Row>
-              <Heading>Welcome</Heading>
-            </Row>
-            <Row className="whitespace">
-              <Col></Col>
-            </Row>
-            <Row>
-              <Col>
-                <EmployeeCard employee={data} />
-              </Col>
-              <Col>
-                <div>
-                  <Link
-                    className="btn btn-outline-light btn-lg bookadeskbtn"
-                    role="button"
-                    to="/bookadesk"
-                  >
-                    Book A Desk
-                  </Link>
-                </div>
-                <div>
-                  <Link
-                    className="btn btn-outline-light btn-lg mybookingsbtn"
-                    role="button"
-                    to="/mybookings"
-                  >
-                    My Bookings
-                  </Link>
-                </div>
-              </Col>
-            </Row>
-          </Container>
-        </ChakraProvider>
+        <>
+          <Header>
+            <NavTabs />
+          </Header>
+          <ChakraProvider>
+            <Container>
+              <Row>
+                <Heading>Welcome</Heading>
+              </Row>
+              <Row className="whitespace">
+                <Col></Col>
+              </Row>
+              <Row>
+                <Col>
+                  <EmployeeCard employee={data} />
+                </Col>
+                <Col>
+                  <div>
+                    <Link
+                      className="btn btn-outline-light btn-lg bookadeskbtn"
+                      role="button"
+                      to="/bookadesk"
+                    >
+                      Book A Desk
+                    </Link>
+                  </div>
+                  <div>
+                    <Link
+                      className="btn btn-outline-light btn-lg mybookingsbtn"
+                      role="button"
+                      to="/mybookings"
+                    >
+                      My Bookings
+                    </Link>
+                  </div>
+                </Col>
+              </Row>
+            </Container>
+          </ChakraProvider>
+        </>
       );
   }
 }

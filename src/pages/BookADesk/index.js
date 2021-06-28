@@ -1,4 +1,6 @@
 import SelectAnAvailableDesk from "../../components/SelectAnAvailableDesk";
+import Header from "../../components/Header";
+import NavTabs from "../../components/NavTabs";
 import api from "../../api";
 import React, { useState } from "react";
 import Calendar from "react-calendar";
@@ -32,28 +34,33 @@ function BookADesk() {
     setDate(dateToYMD(date));
   };
   return (
-    <Container>
-      <Row>
-        <h1>Book A Desk</h1>
-      </Row>
-      <Row>
-        <Col>
-          <h5>Choose A Date</h5>
-          <div>
-            <Calendar onChange={onChange} value={new Date(selectedDate)} />
-            {/* <button className="btn btn-success">Add Date</button> */}
-          </div>
-        </Col>
-        <Col>
-          <h5>Choose An Available Seat</h5>
-          <Image src="officemap-spaceIQ.jpg" fluid />
-          <SelectAnAvailableDesk
-            selectedDate={selectedDate}
-            handler={handleSubmit}
-          />
-        </Col>
-      </Row>
-    </Container>
+    <>
+      <Header>
+        <NavTabs />
+      </Header>
+      <Container>
+        <Row>
+          <h1>Book A Desk</h1>
+        </Row>
+        <Row>
+          <Col>
+            <h5>Choose A Date</h5>
+            <div>
+              <Calendar onChange={onChange} value={new Date(selectedDate)} />
+              {/* <button className="btn btn-success">Add Date</button> */}
+            </div>
+          </Col>
+          <Col>
+            <h5>Choose An Available Seat</h5>
+            <Image src="officemap-spaceIQ.jpg" fluid />
+            <SelectAnAvailableDesk
+              selectedDate={selectedDate}
+              handler={handleSubmit}
+            />
+          </Col>
+        </Row>
+      </Container>
+    </>
   );
 }
 export default BookADesk;

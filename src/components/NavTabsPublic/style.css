@@ -1,0 +1,24 @@
+.nav-item{
+  text-align: right;
+}
+
+.nav-link{
+  color:#575757 !important;
+  font-weight: bolder;
+}
+
+.nav-link:hover{
+  color: #2FCCA9 !important;
+}
+
+.active{
+  color: #2FCCA9 !important;
+}
+
+.leftpicture{
+  margin-left: 20px;
+}
+
+.rightmenu{
+  margin-right: 30px;
+}
