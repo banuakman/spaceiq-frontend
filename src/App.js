@@ -17,9 +17,6 @@ function App() {
   return (
     <Router>
       <QueryClientProvider client={queryClient}>
-        <Header>
-          <NavTabs />
-        </Header>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/bookadesk" component={BookADesk} />
         <Route exact path="/login" component={LoginPage} />

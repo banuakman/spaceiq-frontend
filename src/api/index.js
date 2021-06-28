@@ -12,11 +12,10 @@ const api = {
   },
   getAvailableDeskByDate(date) {
     return ky.get(`${deskUrl}?date=${date}`).json();
-  
   },
   // getAvailableDeskByDate(date) {
   //   return ky.get(`${deskUrl}?date=2021-9-30`).json();
-  
+
   // },
 
   getBookingsById(id) {
@@ -41,8 +40,8 @@ const api = {
     return ky.get(employeeUrl + id).json();
   },
 
-  updateEmployee(request) {
-    return ky.put(employeeUrl, { json: request }).json();
+  updateEmployee(payload, id) {
+    return ky.put(`${employeeUrl}/${id}`, { json: payload });
   },
 };
 

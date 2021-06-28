@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./style.css";
 
-function NavTabs() {
+function NavTabsPublic() {
   const location = useLocation();
   const [show, setShow] = React.useState(false);
 
@@ -10,7 +10,7 @@ function NavTabs() {
     <>
       <Link className="navbar-brand nav-text" to="/">
         <img
-          src="logo-spaceIQ.png"
+          src="logo-spaceIQ-public.png"
           alt="spaceIQ"
           width="160"
           height="60"
@@ -36,46 +36,24 @@ function NavTabs() {
         <ul className="navbar-nav nav-group ms-auto rightmenu">
           <li className="nav-item">
             <Link
-              to="/bookadesk"
+              to="/aboutus"
               className={
-                location.pathname === "/bookadesk"
+                location.pathname === "/aboutus"
                   ? "nav-link active"
                   : "nav-link"
               }
             >
-              Book A Desk
+              About Us
             </Link>
           </li>
           <li className="nav-item">
             <Link
-              to="/mybookings"
+              to="/login"
               className={
-                location.pathname === "/mybookings"
-                  ? "nav-link active"
-                  : "nav-link"
+                location.pathname === "/login" ? "nav-link active" : "nav-link"
               }
             >
-              My Bookings
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link
-              to="/hello"
-              className={
-                location.pathname === "/hello" ? "nav-link active" : "nav-link"
-              }
-            >
-              My Profile
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link
-              to="/"
-              className={
-                location.pathname === "/" ? "nav-link active" : "nav-link"
-              }
-            >
-              Logout
+              Login
             </Link>
           </li>
         </ul>
@@ -84,4 +62,4 @@ function NavTabs() {
   );
 }
 
-export default NavTabs;
+export default NavTabsPublic;
