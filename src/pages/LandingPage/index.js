@@ -13,6 +13,7 @@ const LandingPage = () => (
     </HeaderPublic>
     <Row>
       <Image src="landing-spaceIQ.jpg" fluid />
+      <Image src="landing2-spaceIQ.jpg" fluid />
     </Row>
   </>
 );

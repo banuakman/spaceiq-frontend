@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { useQuery } from "react-query";
 import Spinner from "react-bootstrap/Spinner";
 import { Container, Row, Col } from "react-bootstrap";
+import "./style.css";
 
 const fetchAvailableDeskByDate = async (selectedDate) =>
   await api.getAvailableDeskByDate(selectedDate);
@@ -52,7 +53,7 @@ function SelectAnAvailableDesk({ selectedDate, handler }) {
               ;
             </select>
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary submitbtn">
             Submit
           </button>
         </form>
