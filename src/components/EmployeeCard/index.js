@@ -27,7 +27,7 @@ function EmployeeCard({ employee }) {
 
   return (
     <Card className="employeeCard">
-      <Card.Header key={employee.id} data-id={employee.id}>
+      <Card.Header employeeKey={employee.id} data-id={employee.id}>
         <Heading>
           {employee.firstName} {employee.lastName}
         </Heading>
@@ -39,15 +39,21 @@ function EmployeeCard({ employee }) {
       </Card.Body> */}
 
       <ListGroup className="list-group">
-        <ListGroup.Item>Address: {employee.address}</ListGroup.Item>
-        <ListGroup.Item>Email: {employee.email}</ListGroup.Item>
         <ListGroup.Item>
-          Phone:{" "}
+          <div>Address:</div>
+          <div>{employee.address}</div>
+        </ListGroup.Item>
+        <ListGroup.Item>
+          <div>Email:</div>
+          <div>{employee.email}</div>
+        </ListGroup.Item>
+        <ListGroup.Item>
+          <div>Phone:</div>
           <EditableText
-            defaultValue={employee.phoneNumber}
+            value={employee.phoneNumber}
             handler={handleUpdate}
-            employeeKey="phoneNumber"
-            id={employee.id}
+            employeekey="phoneNumber"
+            id={employee.phoneNumber}
           />
         </ListGroup.Item>
       </ListGroup>
