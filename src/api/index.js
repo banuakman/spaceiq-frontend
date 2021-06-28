@@ -36,8 +36,8 @@ const api = {
     return ky.get(employeeUrl + id).json();
   },
 
-  updateEmployee(request) {
-    return ky.put(employeeUrl, { json: request }).json();
+  updateEmployee(payload, id) {
+    return ky.put(`${employeeUrl}/${id}`, { json: payload });
   },
 };
 

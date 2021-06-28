@@ -1,54 +1,55 @@
 import api from "../../api";
 import PropTypes from "prop-types";
-//import { useMutation, useQueryClient } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
-import Form from "react-bootstrap/Form";
-
-import { useMutation, useQueryClient } from "react-query";
+import EditableText from "./EditableText";
+import { Heading } from "@chakra-ui/react";
+import "./style.css";
 
 function EmployeeCard({ employee }) {
-  // TODO: APPLY EDITABLE TEXT TO ADDRESS, PHONE & EMAIL
+  const updateEmployee = useMutation(({ updatedinfo, id }) =>
+    api.updateEmployee(updatedinfo, id)
+  );
 
-  // TODO: updateEmployee
+  useMutation(({ payload, id }) => api.update(payload, id));
 
-  // const updateEmployee = useMutation(({ updatedinfo, id }) =>
-  //   api.updateEmployee(updatedinfo, id)
-  // );
-
-  // function handleUpdate(event) {
-  //   const updatedEmployee = {
-  //     ...employee.find(
-  //       ({ id }) =>
-  //         id ===
-  //         // Make sure to check as a number!
-  //         Number(event.target.dataset.id)
-  //     ),
-  //     ...{ [event.target.dataset.key]: event.target.value },
-  //   };
-  //   updatedEmployee.mutate({
-  //     updatedinfo: updatedEmployee,
-  //     id: event.target.dataset.id,
-  //   });
-  // }
+  function handleUpdate(event) {
+    const updatedEmployee = {
+      ...employee.id(({ id }) => id === Number(event.target.dataset.id)),
+      ...{ [event.target.dataset.key]: event.target.value },
+    };
+    updateEmployee.mutate({
+      payload: updatedEmployee,
+      id: event.target.dataset.id,
+    });
+  }
 
   return (
-    <Card>
+    <Card className="employeeCard">
       <Card.Header key={employee.id} data-id={employee.id}>
-        <h5>
+        <Heading>
           {employee.firstName} {employee.lastName}
-        </h5>
+        </Heading>
       </Card.Header>
-      <Card.Body>
+      {/* <Card.Body>
         <Card.Text>
           Please update your contact details, if there is any change.
         </Card.Text>
-      </Card.Body>
+      </Card.Body> */}
 
       <ListGroup className="list-group">
         <ListGroup.Item>Address: {employee.address}</ListGroup.Item>
-        <ListGroup.Item>Phone: {employee.phoneNumber}</ListGroup.Item>
         <ListGroup.Item>Email: {employee.email}</ListGroup.Item>
+        <ListGroup.Item>
+          Phone:{" "}
+          <EditableText
+            defaultValue={employee.phoneNumber}
+            handler={handleUpdate}
+            employeeKey="phoneNumber"
+            id={employee.id}
+          />
+        </ListGroup.Item>
       </ListGroup>
     </Card>
   );

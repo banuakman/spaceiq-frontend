@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import Spinner from "react-bootstrap/Spinner";
 import "./style.css";
+
 import { ChakraProvider } from "@chakra-ui/react";
+import { Heading } from "@chakra-ui/react";
 
 const fetchEmployee = async () => await api.getEmployeeById(1);
-
 function MyProfile() {
   const { status, data, error } = useQuery("employee", fetchEmployee);
   console.log("Employee Data Fetch to MYPROFILE:", data);
@@ -35,7 +36,10 @@ function MyProfile() {
         <ChakraProvider>
           <Container>
             <Row>
-              <h1>Welcome</h1>
+              <Heading>Welcome</Heading>
+            </Row>
+            <Row className="whitespace">
+              <Col></Col>
             </Row>
             <Row>
               <Col>

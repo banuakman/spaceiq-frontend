@@ -2,10 +2,7 @@ import { Editable, EditableInput, EditablePreview } from "@chakra-ui/react";
 import PropTypes from "prop-types";
 function EditableText({ value, employeeKey, id, handler }) {
   return (
-    <Editable
-      defaultValue={value}
-      className="flex gap-2 items-center text-purple-600"
-    >
+    <Editable defaultValue={value} className="flex green">
       <EditablePreview />
       <EditableInput
         size="xs"
